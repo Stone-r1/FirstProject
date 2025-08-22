@@ -8,4 +8,5 @@ public class MainPage {
     // public final SelenideElement navigationBarPersonalLocator = $x("//div[@class='tbcx-pw-navigation-item']//a[@href='/en' or @href='/ka']");
     public final SelenideElement quickNavigationActivationButtonLocator = $x("//app-quick-action-button/button[contains(@class, 'primary')]");
     public final SelenideElement quickNavigationLocationButtonLocator = $x("//app-quick-action-button//tbcx-icon[contains(@style, 'location-pin-outlined')]");
+    public final SelenideElement cookieConsentRejectAllButtonLocator = $x("//button[normalize-space(text())='Reject All']");
 }

@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
@@ -24,21 +26,28 @@ public abstract class BaseTest {
             @Optional("") String mobileDevice) {
 
         Configuration.timeout = 10000;
+        Configuration.browserSize = resolution;
 
-        if (!mobileDevice.isEmpty() && browser.equalsIgnoreCase("chrome")) {
+        if (browser.equalsIgnoreCase("chrome")) {
             ChromeOptions chromeOptions = new ChromeOptions();
-            Map<String, String> mobileConfig = Map.of("deviceName", mobileDevice);
-            chromeOptions.setExperimentalOption("mobileEmulation", mobileConfig);
+            chromeOptions.setExperimentalOption("prefs", Map.of(
+                    "profile.default_content_setting_values.geolocation", 2,
+                    "profile.default_content_setting_values.notifications", 2
+            ));
+
             Configuration.browserCapabilities = chromeOptions;
             driver = new ChromeDriver(chromeOptions);
-        } else {
-            Configuration.browserSize = resolution;
 
-            if (browser.equalsIgnoreCase("chrome")) {
-                driver = new ChromeDriver();
-            } else if (browser.equalsIgnoreCase("firefox")) {
-                driver = new FirefoxDriver();
-            }
+        } else if (browser.equalsIgnoreCase("firefox")) {
+            FirefoxProfile profile = new FirefoxProfile();
+            FirefoxOptions firefoxOptions = new FirefoxOptions();
+
+            profile.setPreference("geo.enabled", false);
+            profile.setPreference("permissions.default.desktop-notification", 2);
+            firefoxOptions.setProfile(profile);
+
+            Configuration.browserCapabilities = firefoxOptions;
+            driver = new FirefoxDriver(firefoxOptions);
         }
 
         WebDriverRunner.setWebDriver(driver);
