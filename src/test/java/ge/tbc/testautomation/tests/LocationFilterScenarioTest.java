@@ -17,15 +17,21 @@ public class LocationFilterScenarioTest extends BaseTest {
         open(TBC_MAIN_URL);
     }
 
-    @Test
-    public void checkSomeCrap() {
+    @Test(description = "Location filter (keyword) updates map + list; details visible")
+    public void locationFilterTest() {
+        int branchesBeforeSearch;
+
         mainPageStep
                 .rejectAllCookies()
                 .clickQuickActionButton()
                 .clickQuickActionLocationButton();
+
+        branchesBeforeSearch = locationPageStep.getBranches().size();
+
         locationPageStep
                 .enterLocation(SEARCH_RUSTAVELI_TEXT)
-                .getRelevantBranches()
-                .assertOnlyRelevantLocationsDisplayed(SEARCH_RUSTAVELI_TEXT);
+                .assertMapPinsCountDecreased(branchesBeforeSearch)
+                .assertOnlyRelevantLocationsDisplayed(SEARCH_RUSTAVELI_TEXT, branchesBeforeSearch)
+                .assertDetailsAreVisibleOnBar();
     }
 }
