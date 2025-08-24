@@ -9,11 +9,18 @@ public class LocationPage {
     public final SelenideElement searchBarLocator = $("#tbcx-text-input-1");
 
     // Tabs / Sub-tabs
-    public final SelenideElement allTabLocator = $x("//button[span[normalize-space(text())='All']]");
-    public final SelenideElement branchesTabLocator = $x("//button[span[normalize-space(text())='Branches']]");
-    public final SelenideElement atmsTabLocator = $x("//button[span[normalize-space(text())='ATMs']]");
-    public final SelenideElement alwaysOpenSubtabLocator = $x("//span[normalize-space(text())='24/7']");
-    public final SelenideElement openNowSubtabLocator = $x("//span[normalize-space(text())='Open now']");
+    public SelenideElement getTabLocator(String tabName) {
+        // Pass "ATM" or "ATMs". Both cases will operate as intended
+        return $x(String.format(
+                "//button[span[contains(normalize-space(text()), '%s')]]",
+                tabName));
+    }
+
+    public SelenideElement getSubtabLocator(String subtabName) {
+        return $x(String.format(
+                "//span[normalize-space(text())='%s']",
+                subtabName));
+    }
 
     // Locations(Branches) / Intel about locations(Branches)
     public final ElementsCollection branchesListLocator = $$("app-atm-branches-section-list-item");

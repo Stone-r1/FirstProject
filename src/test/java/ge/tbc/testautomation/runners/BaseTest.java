@@ -19,7 +19,7 @@ public abstract class BaseTest {
     protected WebDriver driver;
 
     @BeforeClass
-    @Parameters({"browser", "resolution", "mobileDevice"})
+    @Parameters({"browser", "resolution"})
     protected void setUp(
             @Optional("firefox") String browser,
             @Optional("1920x1080") String resolution) {

@@ -11,6 +11,7 @@ import java.util.List;
 import static com.codeborne.selenide.Selenide.open;
 import static ge.tbc.testautomation.data.Constants.*;
 
+@Test(description = "Tabs & sub-tabs (Branch/ATM + services like 24/7, Open now)")
 public class TabsAndSubtabsTest extends BaseTest {
     private final MainPageStep mainPageStep = new MainPageStep();
     private final LocationPageStep locationPageStep = new LocationPageStep();
@@ -20,7 +21,7 @@ public class TabsAndSubtabsTest extends BaseTest {
         open(TBC_MAIN_URL);
     }
 
-    @Test(description = "Tabs & sub-tabs (Branch/ATM + services like 24/7, Open now)")
+    @Test
     public void tabsAndSubTabsTest() {
         // Saving as list because I need static snapshot and now dynamic wrapper.
         List<SelenideElement> defaultBranches;
@@ -31,6 +32,26 @@ public class TabsAndSubtabsTest extends BaseTest {
                 .clickQuickActionLocationButton();
 
         defaultBranches = locationPageStep.getBranches().stream().toList();
+
+        locationPageStep
+                .selectTab(TAB_ATM)
+                .assertOnlyATMTabVisible()
+                .selectSubtab(ALWAYS_OPEN_SUBTAB)
+                .assertOnlySubtabAlwaysOpenVisible()
+                .resetFiltersToDefault(SUBTAB_ACTIVE_COLOR, ALWAYS_OPEN_SUBTAB)
+                .selectSubtab(OPEN_NOW_SUBTAB)
+                .assertOnlySubtabOpenNowVisible()
+                .resetFiltersToDefault(SUBTAB_ACTIVE_COLOR, OPEN_NOW_SUBTAB)
+                .selectTab(TAB_BRANCHES)
+                .assertOnlyBranchesTabVisible()
+                .selectSubtab(ALWAYS_OPEN_SUBTAB)
+                .assertOnlySubtabAlwaysOpenVisible()
+                .resetFiltersToDefault(SUBTAB_ACTIVE_COLOR, ALWAYS_OPEN_SUBTAB)
+                .selectSubtab(OPEN_NOW_SUBTAB)
+                .assertOnlySubtabOpenNowVisible()
+                .resetFiltersToDefault(SUBTAB_ACTIVE_COLOR, OPEN_NOW_SUBTAB)
+                .selectTab(TAB_ALL)
+                .assertDefaultBranchesVisible(defaultBranches);
 
         /*
          I need to assert:

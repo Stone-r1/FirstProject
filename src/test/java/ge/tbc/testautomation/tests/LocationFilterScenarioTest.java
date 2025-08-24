@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.open;
 import static ge.tbc.testautomation.data.Constants.*;
 
+@Test(description = "Location filter (keyword) updates map + list; details visible")
 public class LocationFilterScenarioTest extends BaseTest {
     private final MainPageStep mainPageStep = new MainPageStep();
     private final LocationPageStep locationPageStep = new LocationPageStep();
@@ -17,7 +18,7 @@ public class LocationFilterScenarioTest extends BaseTest {
         open(TBC_MAIN_URL);
     }
 
-    @Test(description = "Location filter (keyword) updates map + list; details visible")
+    @Test
     public void locationFilterTest() {
         int branchesBeforeSearch;
 
