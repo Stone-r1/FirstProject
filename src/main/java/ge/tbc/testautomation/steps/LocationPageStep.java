@@ -28,12 +28,18 @@ public class LocationPageStep {
 
     // =============== Clicks =================
     public LocationPageStep selectTab(String tabName) {
-        locationPage.getTabLocator(tabName).shouldBe(Condition.clickable).click();
+        locationPage.getTabLocator(tabName)
+                .shouldBe(Condition.clickable)
+                .click();
         return this;
     }
 
     public LocationPageStep selectSubtab(String subtabName) {
-        locationPage.getSubtabLocator(subtabName).shouldBe(Condition.clickable).click();
+        locationPage.getSubtabLocator(subtabName)
+                .shouldBe(Condition.visible)
+                .scrollIntoView("{block: \"center\"}")
+                .shouldBe(Condition.enabled)
+                .click();
         return this;
     }
 
