@@ -23,7 +23,7 @@
         <!-- can write mobile or smth or make enum with device - resolution -->
         <parameter name="resolution" value="1920x1080"/>
         <classes>
-            <class name="ge.tbc.testautomation.tests.TabsAndSubtabsTest"/>
+            <class name="ge.tbc.testautomation.tests.SearchTest"/>
         </classes>
     </test>
 
@@ -31,7 +31,7 @@
         <parameter name="browser" value="firefox"/>
         <parameter name="resolution" value="375x667"/>
         <classes>
-            <class name="ge.tbc.testautomation.tests.TabsAndSubtabsTest"/>
+            <class name="ge.tbc.testautomation.tests.SearchTest"/>
         </classes>
     </test>
 </suite>

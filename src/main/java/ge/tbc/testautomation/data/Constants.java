@@ -3,6 +3,8 @@ package ge.tbc.testautomation.data;
 public class Constants {
     public static final String TBC_MAIN_URL = "https://tbcbank.ge/en";
     public static final String SEARCH_RUSTAVELI_TEXT = "Rustaveli";
+    public static final String SEARCH_LOCATIONS_TEXT = "Locations";
+    public static final String SEARCH_INVALID_TEXT = "lkjwoilkj";
 
     // Tabs
     public static final String TAB_ALL = "All";

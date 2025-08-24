@@ -15,10 +15,12 @@ public class LocationPageStep {
     private final LocationPage locationPage = new LocationPage();
     private final Helpers helpers = new Helpers();
 
+    // ============== Helpers =================
     public ElementsCollection getBranches() {
         return locationPage.branchesListLocator.shouldBe(CollectionCondition.sizeGreaterThan(0));
     }
 
+    // ============== Actions =================
     public LocationPageStep enterLocation(String location) {
         locationPage.searchBarLocator
                 .shouldBe(Condition.visible)
@@ -26,7 +28,6 @@ public class LocationPageStep {
         return this;
     }
 
-    // =============== Clicks =================
     public LocationPageStep selectTab(String tabName) {
         locationPage.getTabLocator(tabName)
                 .shouldBe(Condition.clickable)

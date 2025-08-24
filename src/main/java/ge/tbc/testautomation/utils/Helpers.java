@@ -41,4 +41,8 @@ public class Helpers {
         ElementsCollection stable = branches.shouldHave(CollectionCondition.sizeGreaterThan(0));
         return stable.asFixedIterable().stream().collect(Collectors.toList());
     }
+
+    public String getAlphabet() {
+        return "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
 }
