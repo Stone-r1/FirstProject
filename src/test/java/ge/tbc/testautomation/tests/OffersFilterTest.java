@@ -1,6 +1,7 @@
 package ge.tbc.testautomation.tests;
 
 import ge.tbc.testautomation.runners.BaseTest;
+import ge.tbc.testautomation.steps.MainPageStep;
 import ge.tbc.testautomation.steps.OffersSteps;
 import org.testng.annotations.Test;
 
@@ -10,6 +11,7 @@ import static ge.tbc.testautomation.data.Constants.*;
 @Test(description = "Offers: apply filters; validate results; reset filters restores defaults.")
 public class OffersFilterTest extends BaseTest {
     private final OffersSteps offersSteps = new OffersSteps();
+    private final MainPageStep mainPageStep = new MainPageStep();
 
     @Override
     protected void openTestPage() {
@@ -19,6 +21,8 @@ public class OffersFilterTest extends BaseTest {
     @Test
     public void testOffersFilter() {
         int defaultOffersSize;
+
+        mainPageStep.rejectAllCookies();
 
         defaultOffersSize = offersSteps.getOffersSnapshotSize();
         offersSteps

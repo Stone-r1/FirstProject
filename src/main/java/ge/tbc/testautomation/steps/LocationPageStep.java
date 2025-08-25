@@ -55,22 +55,29 @@ public class LocationPageStep {
 
     // ============ Assertions ================
     public LocationPageStep assertMapPinsCountDecreased(int branchesBeforeSearch) {
-        locationPage.branchesListLocator.shouldHave(
-                CollectionCondition.sizeLessThanOrEqual(branchesBeforeSearch)
-        );
+        locationPage.branchesListLocator
+                .shouldHave(CollectionCondition.sizeLessThanOrEqual(branchesBeforeSearch))
+                .shouldHave(CollectionCondition.sizeGreaterThan(0));
         return this;
     }
 
     public LocationPageStep assertOnlyRelevantLocationsDisplayed(String location, int branchesBeforeSearch) {
+        List<String> branchTitles = helpers
+                .getStaticSnapshot(
+                        locationPage.branchesListLocator
+                                .shouldHave(CollectionCondition.sizeGreaterThan(0))
+                                .shouldHave(CollectionCondition.sizeLessThanOrEqual(branchesBeforeSearch)))
+                .stream()
+                .map(locationPage::getBranchLocationTitleLocator)
+                .map(SelenideElement::getText)
+                .map(String::toLowerCase)
+                .toList();
+
         Assert.assertTrue(
-               locationPage.branchesListLocator.shouldHave(CollectionCondition.sizeLessThanOrEqual(branchesBeforeSearch))
-                        .asFixedIterable().stream()
-                        .map(locationPage::getBranchLocationTitleLocator)
-                        .map(SelenideElement::getText)
-                        .map(String::toLowerCase)
-                        .allMatch(text -> text.contains(location.toLowerCase())),
-                "There Are Irrelevant Branches."
+                branchTitles.stream().allMatch(text -> text.contains(location.toLowerCase())),
+                "There are irrelevant branches."
         );
+
         return this;
     }
 

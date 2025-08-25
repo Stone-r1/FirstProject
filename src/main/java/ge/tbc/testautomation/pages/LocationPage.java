@@ -6,7 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.*;
 
 public class LocationPage {
-    public final SelenideElement searchBarLocator = $("#tbcx-text-input-1");
+    public SelenideElement searchBarLocator = $("#tbcx-text-input-1");
 
     // Tabs / Sub-tabs
     public SelenideElement getTabLocator(String tabName) {
@@ -23,7 +23,7 @@ public class LocationPage {
     }
 
     // Locations(Branches) / Intel about locations(Branches)
-    public final ElementsCollection branchesListLocator = $$("app-atm-branches-section-list-item");
+    public ElementsCollection branchesListLocator = $$("app-atm-branches-section-list-item");
 
     public SelenideElement getBranchLocationTitleLocator(SelenideElement location) {
         return location.$x(".//div[@tbcx-pw-title]");

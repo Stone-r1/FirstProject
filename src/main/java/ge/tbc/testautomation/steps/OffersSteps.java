@@ -20,17 +20,37 @@ public class OffersSteps {
 
     // ============== Actions =================
     public OffersSteps selectCardType(String... cardOption) {
+        // mobile case
+        if (offersPage.filterChipButtonLocator.exists()) {
+            offersPage.filterChipButtonLocator.click();
+        }
+
         for (String option : cardOption) {
             offersPage.cardTypeCheckBoxLocator(option)
                     .scrollIntoCenter()
+                    .shouldBe(Condition.exist)
                     .shouldBe(Condition.clickable)
                     .click();
         }
+
+        if (offersPage.filterButtonLocator.exists()) {
+            offersPage.filterButtonLocator.click();
+        }
+
         return this;
     }
 
     public OffersSteps deselectCardType() {
+        if (offersPage.filterChipButtonLocator.exists()) {
+            offersPage.filterChipButtonLocator.click();
+        }
+
         offersPage.cardTypeClearButtonLocator.shouldBe(Condition.clickable).click();
+
+        if (offersPage.filterButtonLocator.exists()) {
+            offersPage.filterButtonLocator.click();
+        }
+
         return this;
     }
 

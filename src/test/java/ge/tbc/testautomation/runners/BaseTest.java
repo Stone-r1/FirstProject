@@ -22,7 +22,7 @@ public abstract class BaseTest {
     @Parameters({"browser", "resolution"})
     protected void setUp(
             @Optional("firefox") String browser,
-            @Optional("375x667") String resolution) {
+            @Optional("1920x1080") String resolution) {
 
         Configuration.timeout = 10000;
         Configuration.browserSize = resolution;
