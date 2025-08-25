@@ -3,6 +3,7 @@ package ge.tbc.testautomation.tests;
 import com.codeborne.selenide.SelenideElement;
 import ge.tbc.testautomation.runners.BaseTest;
 import ge.tbc.testautomation.steps.MainPageStep;
+import ge.tbc.testautomation.steps.OffersSteps;
 import ge.tbc.testautomation.steps.SearchResultSteps;
 import org.testng.annotations.Test;
 
@@ -30,16 +31,16 @@ public class SearchTest extends BaseTest {
                 .clickNavbarSearchButton()
                 .enterKeyword(SEARCH_INVALID_TEXT)
                 .assertSearchEmpty()
-                .enterKeyword(SEARCH_LOCATIONS_TEXT)
+                .enterKeyword(LOCATIONS_TEXT)
                 .assertSearchNotEmpty();
 
         searchResults = mainPageStep.getSearchResults().stream().toList();
 
         // aq sheileba loopis dawera ro yvela sheamowmos
         mainPageStep
-                .goToSearchedPage(searchResults.get(0));
+                .goToSearchedPage(searchResults.getFirst());
 
         searchResultSteps
-                .assertSearchSuccess(SEARCH_LOCATIONS_TEXT);
+                .assertSearchSuccess(LOCATIONS_TEXT);
     }
 }

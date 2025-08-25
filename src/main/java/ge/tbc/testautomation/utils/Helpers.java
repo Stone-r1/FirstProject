@@ -2,6 +2,7 @@ package ge.tbc.testautomation.utils;
 
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
 import java.time.LocalDateTime;
@@ -44,5 +45,12 @@ public class Helpers {
 
     public String getAlphabet() {
         return "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+
+    public Long getElementPosition(SelenideElement element) {
+        return Selenide.executeJavaScript(
+                "return arguments[0].getBoundingClientRect().top;",
+                element
+        );
     }
 }
