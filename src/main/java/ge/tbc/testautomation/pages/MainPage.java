@@ -21,6 +21,7 @@ public class MainPage {
 
     // Mega Menu
     public ElementsCollection megaMenuSubGroupsLocator = $$("tbcx-pw-mega-menu-sub-group");
+    public SelenideElement megaMenuSubNavigationFieldLocator = $("tbcx-pw-mega-menu-sub-navigation");
     public SelenideElement megaMenuLanguageSwitcherLocator = $x("//tbcx-pw-mega-menu-bottom//tbcx-lang-switcher");
     public SelenideElement megaMenuActiveTabLocator = $x("//tbcx-pw-mega-menu-navigation//div[contains(@class, 'active')]/button");
     public SelenideElement megaMenuLabelNameLocator = $x("//tbcx-pw-mega-menu-sub-navigation//div[@tbcxpwlinklabel]");

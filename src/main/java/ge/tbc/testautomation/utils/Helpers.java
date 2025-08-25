@@ -48,9 +48,10 @@ public class Helpers {
     }
 
     public Long getElementPosition(SelenideElement element) {
-        return Selenide.executeJavaScript(
+        Number value = Selenide.executeJavaScript(
                 "return arguments[0].getBoundingClientRect().top;",
                 element
         );
+        return value.longValue();
     }
 }

@@ -95,7 +95,7 @@ public class MainPageStep {
 
     public MainPageStep assertStickyNavbar() {
         Long yBefore = helpers.getElementPosition(mainPage.navbarLocator);
-        Selenide.executeJavaScript("window.scrollBy(0, 200)");
+        Selenide.executeJavaScript("window.scrollBy(0, 200)", mainPage.megaMenuSubNavigationFieldLocator);
         Long yAfter = helpers.getElementPosition(mainPage.navbarLocator);
 
         Assert.assertEquals(yBefore, yAfter);

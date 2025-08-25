@@ -21,7 +21,7 @@ public class OffersSteps {
     // ============== Actions =================
     public OffersSteps selectCardType(String... cardOption) {
         // mobile case
-        if (offersPage.filterChipButtonLocator.exists()) {
+        if (offersPage.filterChipButtonLocator.is(Condition.visible)) {
             offersPage.filterChipButtonLocator.click();
         }
 
@@ -33,7 +33,7 @@ public class OffersSteps {
                     .click();
         }
 
-        if (offersPage.filterButtonLocator.exists()) {
+        if (offersPage.filterButtonLocator.is(Condition.visible)) {
             offersPage.filterButtonLocator.click();
         }
 
@@ -41,13 +41,13 @@ public class OffersSteps {
     }
 
     public OffersSteps deselectCardType() {
-        if (offersPage.filterChipButtonLocator.exists()) {
+        if (offersPage.filterChipButtonLocator.is(Condition.visible)) {
             offersPage.filterChipButtonLocator.click();
         }
 
         offersPage.cardTypeClearButtonLocator.shouldBe(Condition.clickable).click();
 
-        if (offersPage.filterButtonLocator.exists()) {
+        if (offersPage.filterButtonLocator.is(Condition.visible)) {
             offersPage.filterButtonLocator.click();
         }
 
