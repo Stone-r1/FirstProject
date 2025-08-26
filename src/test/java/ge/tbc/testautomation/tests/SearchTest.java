@@ -2,8 +2,7 @@ package ge.tbc.testautomation.tests;
 
 import com.codeborne.selenide.SelenideElement;
 import ge.tbc.testautomation.runners.BaseTest;
-import ge.tbc.testautomation.steps.MainPageStep;
-import ge.tbc.testautomation.steps.OffersSteps;
+import ge.tbc.testautomation.steps.MainPageSteps;
 import ge.tbc.testautomation.steps.SearchResultSteps;
 import org.testng.annotations.Test;
 
@@ -12,9 +11,9 @@ import java.util.List;
 import static com.codeborne.selenide.Selenide.open;
 import static ge.tbc.testautomation.data.Constants.*;
 
-@Test(description = "Search: site search by keyword; validate results list and empty state.")
+@Test(description = "Search: site search by keyword; validate results list and empty state. [SCRUM-T3]")
 public class SearchTest extends BaseTest {
-    private final MainPageStep mainPageStep = new MainPageStep();
+    private final MainPageSteps mainPageStep = new MainPageSteps();
     private final SearchResultSteps searchResultSteps = new SearchResultSteps();
 
     @Override

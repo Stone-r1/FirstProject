@@ -2,15 +2,15 @@ package ge.tbc.testautomation.tests;
 
 
 import ge.tbc.testautomation.runners.BaseTest;
-import ge.tbc.testautomation.steps.MainPageStep;
+import ge.tbc.testautomation.steps.MainPageSteps;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 import static ge.tbc.testautomation.data.Constants.*;
 
-@Test(description = "Mobile-specific: hamburger menu behavior; sticky header; key CTA visible in mobile viewport.")
+@Test(description = "Mobile-specific: hamburger menu behavior; sticky header; key CTA visible in mobile viewport. [SCRUM-T5]")
 public class HamburgerMenuTest extends BaseTest {
-    private final MainPageStep mainPageStep = new MainPageStep();
+    private final MainPageSteps mainPageStep = new MainPageSteps();
 
     @Override
     protected void openTestPage() {

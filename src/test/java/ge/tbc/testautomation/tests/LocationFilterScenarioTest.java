@@ -1,17 +1,17 @@
 package ge.tbc.testautomation.tests;
 
 import ge.tbc.testautomation.runners.BaseTest;
-import ge.tbc.testautomation.steps.LocationPageStep;
-import ge.tbc.testautomation.steps.MainPageStep;
+import ge.tbc.testautomation.steps.LocationPageSteps;
+import ge.tbc.testautomation.steps.MainPageSteps;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 import static ge.tbc.testautomation.data.Constants.*;
 
-@Test(description = "Location filter (keyword) updates map + list; details visible")
+@Test(description = "Location filter (keyword) updates map + list; details visible. [SCRUM-T1]")
 public class LocationFilterScenarioTest extends BaseTest {
-    private final MainPageStep mainPageStep = new MainPageStep();
-    private final LocationPageStep locationPageStep = new LocationPageStep();
+    private final MainPageSteps mainPageStep = new MainPageSteps();
+    private final LocationPageSteps locationPageStep = new LocationPageSteps();
 
     @Override
     protected void openTestPage() {

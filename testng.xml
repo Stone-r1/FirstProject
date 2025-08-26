@@ -18,7 +18,7 @@
         </classes>
     </test>
     -->
-    <test name="Firefox Desktop Test" parallel="tests" thread-count="4">
+    <test name="Firefox Desktop Test" parallel="classes" thread-count="4">
         <parameter name="browser" value="firefox"/>
         <!-- can write mobile or smth or make enum with device - resolution -->
         <parameter name="resolution" value="1920x1080"/>
@@ -30,7 +30,7 @@
         </classes>
     </test>
 
-    <test name="Firefox Mobile Test" parallel="tests" thread-count="2">
+    <test name="Firefox Mobile Test" parallel="classes" thread-count="5">
         <parameter name="browser" value="firefox"/>
         <parameter name="resolution" value="375x667"/>
         <classes>

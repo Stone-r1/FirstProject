@@ -6,7 +6,7 @@ import ge.tbc.testautomation.utils.Helpers;
 import org.testng.Assert;
 
 @SuppressWarnings("UnusedReturnValue")
-public class MainPageStep {
+public class MainPageSteps {
     private final MainPage mainPage = new MainPage();
     private final Helpers helpers = new Helpers();
 
@@ -16,38 +16,38 @@ public class MainPageStep {
     }
 
     // ============== Actions =================
-    public MainPageStep rejectAllCookies() {
+    public MainPageSteps rejectAllCookies() {
         // if (mainPage.cookieConsentRejectAllButtonLocator.isDisplayed()) {}
         mainPage.cookieConsentRejectAllButtonLocator.shouldBe(Condition.visible).click();
         return this;
     }
 
-    public MainPageStep clickQuickActionButton() {
+    public MainPageSteps clickQuickActionButton() {
         mainPage.quickNavigationActivationButtonLocator.shouldBe(Condition.visible).click();
         return this;
     }
 
-    public MainPageStep clickQuickActionLocationButton() {
+    public MainPageSteps clickQuickActionLocationButton() {
         mainPage.quickNavigationLocationButtonLocator.shouldBe(Condition.clickable).click();
         return this;
     }
 
-    public MainPageStep clickNavbarSearchButton() {
+    public MainPageSteps clickNavbarSearchButton() {
         mainPage.searchButtonLocator.shouldBe(Condition.visible).click();
         return this;
     }
 
-    public MainPageStep clickHamburgerMenuButton() {
+    public MainPageSteps clickHamburgerMenuButton() {
         mainPage.navbarHamburgerMenuButtonLocator.shouldBe(Condition.visible).click();
         return this;
     }
 
-    public MainPageStep selectNavbarTab(String tabName) {
+    public MainPageSteps selectNavbarTab(String tabName) {
         mainPage.navbarTabLocator(tabName).shouldBe(Condition.visible).click();
         return this;
     }
 
-    public MainPageStep enterKeyword(String keyword) {
+    public MainPageSteps enterKeyword(String keyword) {
         // clear previous input first
         mainPage.searchInputLocator
                 .shouldBe(Condition.visible)
@@ -58,23 +58,23 @@ public class MainPageStep {
         return this;
     }
 
-    public MainPageStep goToSearchedPage(SelenideElement searchedPage) {
+    public MainPageSteps goToSearchedPage(SelenideElement searchedPage) {
         mainPage.searchResultItemShowMoreLocator(searchedPage).shouldBe(Condition.visible).click();
         return this;
     }
 
     // ============ Assertions ================
-    public MainPageStep assertSearchEmpty() {
+    public MainPageSteps assertSearchEmpty() {
         mainPage.searchResultNotFoundLocator.shouldBe(Condition.visible);
         return this;
     }
 
-    public MainPageStep assertSearchNotEmpty() {
+    public MainPageSteps assertSearchNotEmpty() {
         mainPage.searchResultItemsLocator.shouldHave(CollectionCondition.sizeGreaterThan(0));
         return this;
     }
 
-    public MainPageStep assertCorrectTabVisible() {
+    public MainPageSteps assertCorrectTabVisible() {
         Assert.assertEquals(
                 mainPage.megaMenuActiveTabLocator.getText(),
                 mainPage.megaMenuLabelNameLocator.getText(),
@@ -83,17 +83,17 @@ public class MainPageStep {
         return this;
     }
 
-    public MainPageStep assertMegaMenuNotEmpty() {
+    public MainPageSteps assertMegaMenuNotEmpty() {
         mainPage.megaMenuSubGroupsLocator.shouldHave(CollectionCondition.sizeGreaterThan(0));
         return this;
     }
 
-    public MainPageStep assertMegaMenuLanguageSwitcherPresent() {
+    public MainPageSteps assertMegaMenuLanguageSwitcherPresent() {
         mainPage.megaMenuLanguageSwitcherLocator.should(Condition.exist);
         return this;
     }
 
-    public MainPageStep assertStickyNavbar() {
+    public MainPageSteps assertStickyNavbar() {
         Long yBefore = helpers.getElementPosition(mainPage.navbarLocator);
         Selenide.executeJavaScript("window.scrollBy(0, 200)", mainPage.megaMenuSubNavigationFieldLocator);
         Long yAfter = helpers.getElementPosition(mainPage.navbarLocator);
@@ -102,7 +102,7 @@ public class MainPageStep {
         return this;
     }
 
-    public MainPageStep assertMegaMenuQuickActionsPresent(String... QuickActionLabels) {
+    public MainPageSteps assertMegaMenuQuickActionsPresent(String... QuickActionLabels) {
         for (String label : QuickActionLabels) {
             mainPage.megaMenuQuickActionLocator(label).should(Condition.exist);
         }

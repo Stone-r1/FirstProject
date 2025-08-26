@@ -11,7 +11,7 @@ import org.testng.Assert;
 import java.util.List;
 
 @SuppressWarnings("UnusedReturnValue")
-public class LocationPageStep {
+public class LocationPageSteps {
     private final LocationPage locationPage = new LocationPage();
     private final Helpers helpers = new Helpers();
 
@@ -21,21 +21,21 @@ public class LocationPageStep {
     }
 
     // ============== Actions =================
-    public LocationPageStep enterLocation(String location) {
+    public LocationPageSteps enterLocation(String location) {
         locationPage.searchBarLocator
                 .shouldBe(Condition.visible)
                 .setValue(location);
         return this;
     }
 
-    public LocationPageStep selectTab(String tabName) {
+    public LocationPageSteps selectTab(String tabName) {
         locationPage.getTabLocator(tabName)
                 .shouldBe(Condition.clickable)
                 .click();
         return this;
     }
 
-    public LocationPageStep selectSubtab(String subtabName) {
+    public LocationPageSteps selectSubtab(String subtabName) {
         locationPage.getSubtabLocator(subtabName)
                 .shouldBe(Condition.visible)
                 .scrollIntoView("{block: \"center\"}")
@@ -44,7 +44,7 @@ public class LocationPageStep {
         return this;
     }
 
-    public LocationPageStep resetFiltersToDefault(String activeValue, String... subtabNames) {
+    public LocationPageSteps resetFiltersToDefault(String activeValue, String... subtabNames) {
         for (String subtabName : subtabNames) {
             if (locationPage.getSubtabLocator(subtabName).getCssValue("background-color").equals(activeValue)) {
                 locationPage.getSubtabLocator(subtabName).shouldBe(Condition.clickable).click();
@@ -54,14 +54,14 @@ public class LocationPageStep {
     }
 
     // ============ Assertions ================
-    public LocationPageStep assertMapPinsCountDecreased(int branchesBeforeSearch) {
+    public LocationPageSteps assertMapPinsCountDecreased(int branchesBeforeSearch) {
         locationPage.branchesListLocator
                 .shouldHave(CollectionCondition.sizeLessThanOrEqual(branchesBeforeSearch))
                 .shouldHave(CollectionCondition.sizeGreaterThan(0));
         return this;
     }
 
-    public LocationPageStep assertOnlyRelevantLocationsDisplayed(String location, int branchesBeforeSearch) {
+    public LocationPageSteps assertOnlyRelevantLocationsDisplayed(String location, int branchesBeforeSearch) {
         List<String> branchTitles = helpers
                 .getStaticSnapshot(
                         locationPage.branchesListLocator
@@ -81,7 +81,7 @@ public class LocationPageStep {
         return this;
     }
 
-    public LocationPageStep assertDetailsAreVisibleOnBar() {
+    public LocationPageSteps assertDetailsAreVisibleOnBar() {
         Assert.assertTrue(
                 helpers.getStaticSnapshot(locationPage.branchesListLocator)
                         .stream()
@@ -103,7 +103,7 @@ public class LocationPageStep {
     }
 
     // ============ Tabs and Subtabs =============
-    public LocationPageStep assertOnlyATMTabVisible() {
+    public LocationPageSteps assertOnlyATMTabVisible() {
         Assert.assertTrue(
                 helpers.getStaticSnapshot(locationPage.branchesListLocator)
                         .stream()
@@ -115,7 +115,7 @@ public class LocationPageStep {
         return this;
     }
 
-    public LocationPageStep assertOnlyBranchesTabVisible() {
+    public LocationPageSteps assertOnlyBranchesTabVisible() {
         Assert.assertTrue(
                 helpers.getStaticSnapshot(locationPage.branchesListLocator)
                         .stream()
@@ -127,7 +127,7 @@ public class LocationPageStep {
         return this;
     }
 
-    public LocationPageStep assertOnlySubtabAlwaysOpenVisible() {
+    public LocationPageSteps assertOnlySubtabAlwaysOpenVisible() {
         Assert.assertTrue(
                 helpers.getStaticSnapshot(locationPage.branchesListLocator)
                         .stream()
@@ -139,7 +139,7 @@ public class LocationPageStep {
         return this;
     }
 
-    public LocationPageStep assertOnlySubtabOpenNowVisible() {
+    public LocationPageSteps assertOnlySubtabOpenNowVisible() {
         Assert.assertTrue(
                 helpers.getStaticSnapshot(locationPage.branchesListLocator)
                         .stream()
@@ -152,7 +152,7 @@ public class LocationPageStep {
         return this;
     }
 
-    public LocationPageStep assertDefaultBranchesVisible(List<SelenideElement> defaultBranches) {
+    public LocationPageSteps assertDefaultBranchesVisible(List<SelenideElement> defaultBranches) {
         locationPage.branchesListLocator.shouldHave(
                 CollectionCondition.size(defaultBranches.size())
         );

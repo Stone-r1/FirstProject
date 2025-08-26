@@ -2,8 +2,8 @@ package ge.tbc.testautomation.tests;
 
 import com.codeborne.selenide.SelenideElement;
 import ge.tbc.testautomation.runners.BaseTest;
-import ge.tbc.testautomation.steps.LocationPageStep;
-import ge.tbc.testautomation.steps.MainPageStep;
+import ge.tbc.testautomation.steps.LocationPageSteps;
+import ge.tbc.testautomation.steps.MainPageSteps;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -11,10 +11,10 @@ import java.util.List;
 import static com.codeborne.selenide.Selenide.open;
 import static ge.tbc.testautomation.data.Constants.*;
 
-@Test(description = "Tabs & sub-tabs (Branch/ATM + services like 24/7, Open now)")
+@Test(description = "Tabs & sub-tabs (Branch/ATM + services like 24/7, Open now) [SCRUM-T2]")
 public class TabsAndSubtabsTest extends BaseTest {
-    private final MainPageStep mainPageStep = new MainPageStep();
-    private final LocationPageStep locationPageStep = new LocationPageStep();
+    private final MainPageSteps mainPageStep = new MainPageSteps();
+    private final LocationPageSteps locationPageStep = new LocationPageSteps();
 
     @Override
     protected void openTestPage() {
