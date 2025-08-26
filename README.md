@@ -21,11 +21,21 @@ You must document scenarios in **Zephyr Scale** and **automate only what you doc
 ---
 
 ## Selected Scope (Scenarios)
-- Location filter (keyword) updates map + list; details visible
-- Tabs & sub-tabs (Branch/ATM + services like 24/7, Open now)
-- Search: site search by keyword; validate results list and empty state.
-- Offers: apply filters; validate results; reset filters restores defaults
-- Mobile-specific: hamburger menu behavior; sticky header; key CTA visible in mobile viewport.
+- **Search By Keyword Filter on Location Page**
+    - Location filter (keyword) updates map + list; details visible
+
+- **Tabs & Sub-tabs Validation on Location Page**
+    - Tabs & sub-tabs (Branch/ATM + services like 24/7, Open now)
+
+- **Validation of Global Search By Keyword**
+    - Search: site search by keyword; validate results list and empty state.
+
+- **Card Type Filters Validity on All-Offers Page**
+    - Offers: apply filters; validate results; reset filters restores defaults
+
+- **Mobile Hamburger Menu & Sticky Navbar Validation**
+    - Mobile-specific: hamburger menu behavior; sticky header; key CTA visible in mobile viewport.
+
 
 ---
 
