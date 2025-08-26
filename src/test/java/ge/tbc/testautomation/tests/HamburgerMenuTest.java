@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.open;
 import static ge.tbc.testautomation.data.Constants.*;
 
-@Test(description = "Mobile-specific: hamburger menu behavior; sticky header; key CTA visible in mobile viewport. [SCRUM-T5]")
+@Test(description = "Mobile Hamburger Menu & Sticky Navbar Validation. [SCRUM-T5]")
 public class HamburgerMenuTest extends BaseTest {
     private final MainPageSteps mainPageStep = new MainPageSteps();
 

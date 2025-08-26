@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.open;
 import static ge.tbc.testautomation.data.Constants.*;
 
-@Test(description = "Location filter (keyword) updates map + list; details visible. [SCRUM-T1]")
+@Test(description = "Search By Keyword Filter on Location Page. [SCRUM-T1]")
 public class LocationFilterScenarioTest extends BaseTest {
     private final MainPageSteps mainPageStep = new MainPageSteps();
     private final LocationPageSteps locationPageStep = new LocationPageSteps();

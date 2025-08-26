@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.open;
 import static ge.tbc.testautomation.data.Constants.*;
 
-@Test(description = "Offers: apply filters; validate results; reset filters restores defaults. [SCRUM-T4]")
+@Test(description = "Card Type Filters Validity on All-Offers Page. [SCRUM-T4]")
 public class OffersFilterTest extends BaseTest {
     private final OffersSteps offersSteps = new OffersSteps();
     private final MainPageSteps mainPageStep = new MainPageSteps();

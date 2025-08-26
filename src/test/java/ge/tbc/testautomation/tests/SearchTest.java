@@ -11,7 +11,7 @@ import java.util.List;
 import static com.codeborne.selenide.Selenide.open;
 import static ge.tbc.testautomation.data.Constants.*;
 
-@Test(description = "Search: site search by keyword; validate results list and empty state. [SCRUM-T3]")
+@Test(description = "Search By Keyword Filter on Location Page. [SCRUM-T3]")
 public class SearchTest extends BaseTest {
     private final MainPageSteps mainPageStep = new MainPageSteps();
     private final SearchResultSteps searchResultSteps = new SearchResultSteps();

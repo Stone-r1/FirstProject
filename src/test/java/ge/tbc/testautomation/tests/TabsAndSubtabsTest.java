@@ -11,7 +11,7 @@ import java.util.List;
 import static com.codeborne.selenide.Selenide.open;
 import static ge.tbc.testautomation.data.Constants.*;
 
-@Test(description = "Tabs & sub-tabs (Branch/ATM + services like 24/7, Open now) [SCRUM-T2]")
+@Test(description = "Tabs & Sub-tabs Validation on Location Page. [SCRUM-T2]")
 public class TabsAndSubtabsTest extends BaseTest {
     private final MainPageSteps mainPageStep = new MainPageSteps();
     private final LocationPageSteps locationPageStep = new LocationPageSteps();
